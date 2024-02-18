@@ -1,0 +1,26 @@
+"use client";
+
+import { colors } from "@/styles/colorPalette";
+import styled from "styled-components";
+
+const Input = styled.input<{ color?: string }>`
+  padding: 0 16px;
+  font-size: 15px;
+  height: 48px;
+  font-weight: 500;
+  border: 1px solid ${colors.gray};
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: ${({ color }) => (color ? color : colors.gray)};
+  }
+
+  &[aria-invalid="true"] {
+    border-color: ${colors.red};
+  }
+`;
+
+export default Input;

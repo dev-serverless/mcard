@@ -1,6 +1,8 @@
 "use clinet";
 import { Button } from "@/components/shared/Button";
+import Input from "@/components/shared/Input";
 import { Text } from "@/components/shared/Text";
+import TextField from "@/components/shared/TextField";
 
 const Home = () => {
   return (
@@ -29,6 +31,9 @@ const Home = () => {
       >
         클릭
       </Button>
+      <Input placeholder="로그인" aria-invalid={true} />
+      <TextField label="id" />
+      <TextField label="password" hasError={true} helpMessage={"하ㅣㅇ"} />
     </>
   );
 };

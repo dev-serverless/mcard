@@ -6,6 +6,11 @@ import { colorPalette } from "./colorPalette";
 export const GlobalStyle = createGlobalStyle`
   ${colorPalette}
 
+  :root {
+    --dimmed-zindex : 10;
+    --alert-zindex: 11;
+  }
+
   html,
   body,
   div,

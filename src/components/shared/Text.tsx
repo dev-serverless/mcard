@@ -15,10 +15,10 @@ type TextProps = {
 };
 
 export const Text = styled.span<TextProps>`
-  color: ${(props) => props.color || "black"};
-  display: ${(props) => props.display};
-  text-align: ${(props) => props.textAlign};
-  font-weight: ${(props) => (props.bold ? "bold" : props.fontWeight)};
+  color: ${({ color }) => color || "black"};
+  display: ${({ display }) => display};
+  text-align: ${({ textAlign }) => textAlign};
+  font-weight: ${({ bold, fontWeight }) => (bold ? "bold" : fontWeight)};
   ${(props) =>
     (props.typography && typographyMap[props.typography]) ||
     typographyMap["t5"]}
