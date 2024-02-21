@@ -1,32 +1,19 @@
 "use client";
 
-import React, { useCallback, useEffect } from "react";
-import { useOverlay } from "@toss/use-overlay";
-import { Button } from "@/components/shared/Button";
-import Alert from "@/components/shared/Alert";
-import getCards from "@/remote/card";
-import getAddBanenrs from "@/remote/adBanner";
+import AdBanners from "@/components/home/AdBanners";
+import Top from "@/components/shared/Top";
+import React from "react";
 
 const Home = () => {
-  const overlay = useOverlay();
-
-  const AlertModal = useCallback(() => {
-    overlay.open(({ isOpen, close }) => (
-      <Alert title="hi" description="hi2" isOpen={isOpen} onClose={close} />
-    ));
-  }, [overlay]);
-
-  useEffect(() => {
-    getCards().then((res) => {
-      console.log("res", res);
-    });
-
-    getAddBanenrs().then((res) => {
-      console.log("resss", res);
-    });
-  }, []);
-
-  return <Button onClick={AlertModal}>Overlay Open</Button>;
+  return (
+    <div>
+      <Top
+        title="혜택 좋은 카드"
+        subTitle="회원님을 위해서 혜택 좋은 카드를 모아봤어요"
+      />
+      <AdBanners />
+    </div>
+  );
 };
 
 export default Home;
