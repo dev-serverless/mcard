@@ -1,6 +1,8 @@
 import {
   QuerySnapshot,
   collection,
+  doc,
+  getDoc,
   getDocs,
   limit,
   query,
@@ -11,7 +13,7 @@ import { COLLECTIONS } from "@/constants";
 import { Card } from "@/models/card";
 
 // pageParam 지금 보이는 것중 맨 마지막 요소
-const getCards = async (pageParam?: QuerySnapshot<Card>) => {
+export const getCards = async (pageParam?: QuerySnapshot<Card>) => {
   const cardQuery =
     pageParam == null
       ? query(collection(store, COLLECTIONS.CARD), limit(10))
@@ -33,4 +35,11 @@ const getCards = async (pageParam?: QuerySnapshot<Card>) => {
   return { items, lastVisible };
 };
 
-export default getCards;
+export const getCard = async (id: string) => {
+  const snapshot = await getDoc(doc(store, COLLECTIONS.CARD, id));
+
+  return {
+    id,
+    ...(snapshot.data() as Card),
+  };
+};

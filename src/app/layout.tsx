@@ -5,6 +5,7 @@ import { GlobalStyle } from "@/styles/globalStyles";
 import { OverlayProvider } from "@toss/use-overlay";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Inter } from "next/font/google";
+import ScrollToTop from "@/components/shared/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <StyledComponentsRegistry>
             <QueryClientProvider client={client}>
               <GlobalStyle />
+              <ScrollToTop />
               {children}
             </QueryClientProvider>
           </StyledComponentsRegistry>

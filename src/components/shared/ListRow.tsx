@@ -26,7 +26,11 @@ const ListRow = ({
       <Flex style={{ marginRight: "14px" }}></Flex>
       <Flex style={{ flex: 1 }}>{contents}</Flex>
       <Flex>{right}</Flex>
-      {withArrow && <IconArrowRight />}
+      {withArrow && (
+        <div style={{ cursor: "pointer" }}>
+          <IconArrowRight />
+        </div>
+      )}
     </Flex>
   );
 };
